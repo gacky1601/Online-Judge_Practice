@@ -1,0 +1,63 @@
+import random
+n1=random.randrange(1,9)
+n2=random.randrange(1,9)
+n3=random.randrange(1,9)
+n4=random.randrange(1,9)
+while n1==n2 or n1==n3 or n1==n4 or n2==n3 or n2==n4 or n3==n4:
+    n1=random.randrange(1,9)
+    n2=random.randrange(1,9)
+    n3=random.randrange(1,9)
+    n4=random.randrange(1,9)
+num=n1*1000+n2*100+n3*10+n4
+print("題目:",num)
+err=0
+while True:
+    a=0
+    b=0
+    guess=int(input())
+    g1=int(guess/1000)
+    g2=int((guess-(g1*1000))/100)
+    g3=int((guess-(g1*1000)-(g2*100))/10)
+    g4=int(guess%10)
+    print(g1,g2,g3,g4)
+    if(g1==n1):
+        a=a+1
+    if(g2==n2):
+        a=a+1
+    if(g3==n3):
+        a=a+1
+    if(g4==n4):
+        a=a+1
+    if(g1==n2):
+        b=b+1
+    if(g1==n3):
+        b=b+1
+    if(g1==n4):
+        b=b+1
+    if(g2==n1):
+        b=b+1
+    if(g2==n3):
+        b=b+1
+    if(g2==n4):
+        b=b+1
+    if(g3==n1):
+        b=b+1
+    if(g3==n2):
+        b=b+1
+    if(g3==n4):
+        b=b+1
+    if(g4==n1):
+        b=b+1
+    if(g4==n2):
+        b=b+1
+    if(g4==n3):
+        b=b+1
+    if(num==guess):
+            print("猜對了")
+            break
+    else:
+        if(err==6):
+                print("超過次數，遊戲結束")
+                break
+        print(a,'A',b,'B')
+        err=err+1
